@@ -1,0 +1,75 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 14
+VisualStudioVersion = 14.0.25123.0
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BGL.Web", "BGL.Web\BGL.Web.csproj", "{67E74230-B218-42B4-8C44-6FF16876457D}"
+	ProjectSection(ProjectDependencies) = postProject
+		{6D5E7B22-47D8-40CE-8003-E9784E3E1D22} = {6D5E7B22-47D8-40CE-8003-E9784E3E1D22}
+	EndProjectSection
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BGL.Web.Tests", "BGL.Web.Tests\BGL.Web.Tests.csproj", "{FE70A6D3-9E31-45E3-8431-29F4D53449CE}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "PublishScripts", "PublishScripts", "{701223A7-F615-46BF-B858-F34948D205A9}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Scripts", "Scripts", "{77228331-040B-4674-A507-ADE587E78BDC}"
+	ProjectSection(SolutionItems) = preProject
+		PublishScripts\Scripts\Deploy-AzureResourceGroup.ps1 = PublishScripts\Scripts\Deploy-AzureResourceGroup.ps1
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Templates", "Templates", "{FF4A6219-C4DF-4888-8106-930A364D2903}"
+	ProjectSection(SolutionItems) = preProject
+		PublishScripts\Templates\BGLWeb.json = PublishScripts\Templates\BGLWeb.json
+		PublishScripts\Templates\BGLWeb.param.dev.json = PublishScripts\Templates\BGLWeb.param.dev.json
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Clients", "Clients", "{64B28333-5BE1-4F15-B3CC-D6ED4E37EC46}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Services", "Services", "{80FEB9B2-6876-47AB-A26B-8186110368C1}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GBL.Service.Hosts", "GBL.Service.Hosts\GBL.Service.Hosts.csproj", "{6D5E7B22-47D8-40CE-8003-E9784E3E1D22}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GBL.Service.Api", "GBL.Services.Api\GBL.Service.Api.csproj", "{B5FB70FA-D36A-47B8-8BCF-D947F7361079}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GBL.Service", "GBL.Services\GBL.Service.csproj", "{74F24367-3CC9-462B-B10F-9E41F152E207}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{67E74230-B218-42B4-8C44-6FF16876457D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{67E74230-B218-42B4-8C44-6FF16876457D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{67E74230-B218-42B4-8C44-6FF16876457D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{67E74230-B218-42B4-8C44-6FF16876457D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{FE70A6D3-9E31-45E3-8431-29F4D53449CE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{FE70A6D3-9E31-45E3-8431-29F4D53449CE}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{FE70A6D3-9E31-45E3-8431-29F4D53449CE}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{FE70A6D3-9E31-45E3-8431-29F4D53449CE}.Release|Any CPU.Build.0 = Release|Any CPU
+		{6D5E7B22-47D8-40CE-8003-E9784E3E1D22}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6D5E7B22-47D8-40CE-8003-E9784E3E1D22}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6D5E7B22-47D8-40CE-8003-E9784E3E1D22}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6D5E7B22-47D8-40CE-8003-E9784E3E1D22}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B5FB70FA-D36A-47B8-8BCF-D947F7361079}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B5FB70FA-D36A-47B8-8BCF-D947F7361079}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B5FB70FA-D36A-47B8-8BCF-D947F7361079}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B5FB70FA-D36A-47B8-8BCF-D947F7361079}.Release|Any CPU.Build.0 = Release|Any CPU
+		{74F24367-3CC9-462B-B10F-9E41F152E207}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{74F24367-3CC9-462B-B10F-9E41F152E207}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{74F24367-3CC9-462B-B10F-9E41F152E207}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{74F24367-3CC9-462B-B10F-9E41F152E207}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{67E74230-B218-42B4-8C44-6FF16876457D} = {64B28333-5BE1-4F15-B3CC-D6ED4E37EC46}
+		{FE70A6D3-9E31-45E3-8431-29F4D53449CE} = {64B28333-5BE1-4F15-B3CC-D6ED4E37EC46}
+		{77228331-040B-4674-A507-ADE587E78BDC} = {701223A7-F615-46BF-B858-F34948D205A9}
+		{FF4A6219-C4DF-4888-8106-930A364D2903} = {701223A7-F615-46BF-B858-F34948D205A9}
+		{6D5E7B22-47D8-40CE-8003-E9784E3E1D22} = {80FEB9B2-6876-47AB-A26B-8186110368C1}
+		{B5FB70FA-D36A-47B8-8BCF-D947F7361079} = {80FEB9B2-6876-47AB-A26B-8186110368C1}
+		{74F24367-3CC9-462B-B10F-9E41F152E207} = {80FEB9B2-6876-47AB-A26B-8186110368C1}
+	EndGlobalSection
+EndGlobal

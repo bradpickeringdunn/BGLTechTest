@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ReferenceGroup xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" ID="2b79ecc9-635d-47d6-aaad-0450d023214c" xmlns="urn:schemas-microsoft-com:xml-wcfservicemap">
+  <ClientOptions>
+    <GenerateAsynchronousMethods>false</GenerateAsynchronousMethods>
+    <GenerateTaskBasedAsynchronousMethod>true</GenerateTaskBasedAsynchronousMethod>
+    <EnableDataBinding>true</EnableDataBinding>
+    <ExcludedTypes />
+    <ImportXmlTypes>false</ImportXmlTypes>
+    <GenerateInternalTypes>false</GenerateInternalTypes>
+    <GenerateMessageContracts>false</GenerateMessageContracts>
+    <NamespaceMappings />
+    <CollectionMappings />
+    <GenerateSerializableTypes>true</GenerateSerializableTypes>
+    <Serializer>Auto</Serializer>
+    <UseSerializerForFaults>true</UseSerializerForFaults>
+    <ReferenceAllAssemblies>false</ReferenceAllAssemblies>
+    <ReferencedAssemblies />
+    <ReferencedDataContractTypes />
+    <ServiceContractMappings />
+  </ClientOptions>
+  <MetadataSources>
+    <MetadataSource Address="http://localhost:50622/GitService.svc" Protocol="http" SourceId="1" />
+  </MetadataSources>
+  <Metadata>
+    <MetadataFile FileName="GitService.xsd" MetadataType="Schema" ID="513139dc-8fa4-4e74-a95b-3b653e96f9b9" SourceId="1" SourceUrl="http://localhost:50622/GitService.svc?xsd=xsd0" />
+    <MetadataFile FileName="GitService.wsdl" MetadataType="Wsdl" ID="a9e5b573-a942-426c-a836-a07dfd3c7169" SourceId="1" SourceUrl="http://localhost:50622/GitService.svc?wsdl" />
+    <MetadataFile FileName="GitService1.xsd" MetadataType="Schema" ID="9dedf20c-6e4b-46c6-911f-4e86693f102f" SourceId="1" SourceUrl="http://localhost:50622/GitService.svc?xsd=xsd1" />
+    <MetadataFile FileName="GitService.disco" MetadataType="Disco" ID="520d277e-ff9f-4385-8ef9-dd9622ff8af7" SourceId="1" SourceUrl="http://localhost:50622/GitService.svc?disco" />
+    <MetadataFile FileName="GitService2.xsd" MetadataType="Schema" ID="2a0d5678-6544-4b33-8624-7df47eca3603" SourceId="1" SourceUrl="http://localhost:50622/GitService.svc?xsd=xsd2" />
+  </Metadata>
+  <Extensions>
+    <ExtensionFile FileName="configuration91.svcinfo" Name="configuration91.svcinfo" />
+    <ExtensionFile FileName="configuration.svcinfo" Name="configuration.svcinfo" />
+  </Extensions>
+</ReferenceGroup>

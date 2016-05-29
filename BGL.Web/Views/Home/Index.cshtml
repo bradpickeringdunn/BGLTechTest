@@ -1,0 +1,17 @@
+﻿@{
+    ViewBag.Title = "Home Page";
+}
+
+<div class="row">
+    <div class="col-md-4">
+        <h2>GBL Tech test</h2>
+        <p>
+            Search for a users on git
+        </p>
+        @using (Html.BeginForm("Index", "GitUsers", FormMethod.Get))
+        {
+            <input type="tel" name="userName" id="userName" placeholder="Username"/>
+            <input type="submit" title="Search"/>
+        }
+    </div>
+</div>
