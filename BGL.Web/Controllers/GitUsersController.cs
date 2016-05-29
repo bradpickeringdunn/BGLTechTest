@@ -1,17 +1,22 @@
-﻿using System.Web.Mvc;
+﻿using Backbone.Logging;
+using System.Web.Mvc;
 
 namespace BGL.Web.Controllers
 {
     public class GitUsersController : BaseController
     {
-        // GET: GitUsers
-        [HttpGet]
+        private ILogger logger = new DebugLogger();
+
+        private GitService.IGitService gitService = new GitService.GitServiceClient();
+
+            // GET: GitUsers
+            [HttpGet]
         public ActionResult Index(string userName)
         {
-            var service = new GitService.GitServiceClient();
-            var x = service.LoadGitUser();
-
-            return View();
+            return new Actions.GetUserRepositoriesAction<ActionResult>(this.gitService, this.logger)
+            {
+                OnSuccess = (model) => View(Views.Views.GitUsers.UserRepositories, model)
+            }.Execute(userName);
         }
     }
 }

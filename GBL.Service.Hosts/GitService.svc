@@ -1,4 +1,4 @@
 ﻿<%@ ServiceHost Language="C#" 
     Debug="true" 
     Service="GBL.Services.GitService" 
-    CodeBehind="GBL.Services.Api.Contracts.IGitService.cs" %>
+    Factory="GBL.Service.Hosts.WcfServiceFactory, GBL.Service.Hosts" %>

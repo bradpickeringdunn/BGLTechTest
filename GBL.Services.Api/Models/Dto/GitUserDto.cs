@@ -10,10 +10,10 @@ namespace GBL.Service.Api.Models.Dto
         public string Name { get; set; }
 
         [DataMember]
-        string AvatarUrl { get; set; }
+        public string AvatarUrl { get; set; }
 
         [DataMember]
-        string Location { get; set; }
+        public string Location { get; set; }
 
     }
 }

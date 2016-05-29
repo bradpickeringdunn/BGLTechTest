@@ -1,0 +1,31 @@
+﻿@model BGL.Web.ViewModels.UserRepositoriesViewModel
+
+@{
+    ViewBag.Title = "UserRepositories";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>UserRepositories</h2>
+
+<div>
+    <h4>User details</h4>
+    <hr />
+    <ul>
+        <li>@Html.LabelFor((m) => m.User.Name): @Model.User.Name</li>
+        <li>@Html.LabelFor((m) => m.User.Location): @Model.User.Location</li>
+        <li>@Html.LabelFor((m) => m.User.AvatarUrl): @Model.User.AvatarUrl</li>
+    </ul>
+                <dl class="dl-horizontal"></dl>
+                <div>
+                    <ol>
+                        @foreach (var repo in Model.Repositories)
+            {
+                            <li>@repo.Name< - @repo.StargazersCount</li>
+                        }
+                    </ol>
+                </div>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { /* id = Model.PrimaryKey */ }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

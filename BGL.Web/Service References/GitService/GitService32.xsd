@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:tns="http://schemas.datacontract.org/2004/07/GBL.Service.Api.Models.Result" elementFormDefault="qualified" targetNamespace="http://schemas.datacontract.org/2004/07/GBL.Service.Api.Models.Result" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:import schemaLocation="http://localhost:50622/GitService.svc?xsd=xsd4" namespace="http://schemas.datacontract.org/2004/07/Backbone.Services.Results" />
+  <xs:complexType name="GetUserResult">
+    <xs:complexContent mixed="false">
+      <xs:extension xmlns:q1="http://schemas.datacontract.org/2004/07/Backbone.Services.Results" base="q1:GenericServiceResult">
+        <xs:sequence />
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="GetUserResult" nillable="true" type="tns:GetUserResult" />
+  <xs:complexType name="GetRepositoriesResult">
+    <xs:complexContent mixed="false">
+      <xs:extension xmlns:q2="http://schemas.datacontract.org/2004/07/Backbone.Services.Results" base="q2:GenericServiceResult">
+        <xs:sequence />
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="GetRepositoriesResult" nillable="true" type="tns:GetRepositoriesResult" />
+</xs:schema>

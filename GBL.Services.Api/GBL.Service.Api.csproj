@@ -46,8 +46,11 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Contracts\IGitService.cs" />
+    <Compile Include="Models\Dto\GitRepositoryDto.cs" />
     <Compile Include="Models\Dto\GitUserDto.cs" />
+    <Compile Include="Models\Request\GetRepositoriesRequest.cs" />
     <Compile Include="Models\Request\GetUserRequest.cs" />
+    <Compile Include="Models\Result\GetRepositoriesResult.cs" />
     <Compile Include="Models\Result\GetUserResult.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

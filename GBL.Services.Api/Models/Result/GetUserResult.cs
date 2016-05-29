@@ -7,6 +7,7 @@ namespace GBL.Service.Api.Models.Result
     [DataContract]
     public class GetUserResult : GenericServiceResult
     {
+        [DataMember]
         public UserDto User { get; set; }
 
         public GetUserResult()

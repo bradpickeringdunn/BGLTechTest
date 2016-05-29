@@ -4,7 +4,10 @@
     <xsd:schema targetNamespace="http://tempuri.org/Imports">
       <xsd:import schemaLocation="http://localhost:50622/GitService.svc?xsd=xsd0" namespace="http://tempuri.org/" />
       <xsd:import schemaLocation="http://localhost:50622/GitService.svc?xsd=xsd1" namespace="http://schemas.microsoft.com/2003/10/Serialization/" />
-      <xsd:import schemaLocation="http://localhost:50622/GitService.svc?xsd=xsd2" namespace="http://schemas.datacontract.org/2004/07/GBL.Service.Api.Models.DTO" />
+      <xsd:import schemaLocation="http://localhost:50622/GitService.svc?xsd=xsd2" namespace="http://schemas.datacontract.org/2004/07/GBL.Service.Api.Models.Request" />
+      <xsd:import schemaLocation="http://localhost:50622/GitService.svc?xsd=xsd3" namespace="http://schemas.datacontract.org/2004/07/GBL.Service.Api.Models.Result" />
+      <xsd:import schemaLocation="http://localhost:50622/GitService.svc?xsd=xsd4" namespace="http://schemas.datacontract.org/2004/07/Backbone.Services.Results" />
+      <xsd:import schemaLocation="http://localhost:50622/GitService.svc?xsd=xsd5" namespace="http://schemas.microsoft.com/2003/10/Serialization/Arrays" />
     </xsd:schema>
   </wsdl:types>
   <wsdl:message name="IGitService_LoadGitUser_InputMessage">
@@ -13,16 +16,35 @@
   <wsdl:message name="IGitService_LoadGitUser_OutputMessage">
     <wsdl:part name="parameters" element="tns:LoadGitUserResponse" />
   </wsdl:message>
+  <wsdl:message name="IGitService_GetRepositories_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetRepositories" />
+  </wsdl:message>
+  <wsdl:message name="IGitService_GetRepositories_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetRepositoriesResponse" />
+  </wsdl:message>
   <wsdl:portType name="IGitService">
     <wsdl:operation name="LoadGitUser">
       <wsdl:input wsaw:Action="http://tempuri.org/IGitService/LoadGitUser" message="tns:IGitService_LoadGitUser_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/IGitService/LoadGitUserResponse" message="tns:IGitService_LoadGitUser_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetRepositories">
+      <wsdl:input wsaw:Action="http://tempuri.org/IGitService/GetRepositories" message="tns:IGitService_GetRepositories_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IGitService/GetRepositoriesResponse" message="tns:IGitService_GetRepositories_OutputMessage" />
     </wsdl:operation>
   </wsdl:portType>
   <wsdl:binding name="BasicHttpBinding_IGitService" type="tns:IGitService">
     <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
     <wsdl:operation name="LoadGitUser">
       <soap:operation soapAction="http://tempuri.org/IGitService/LoadGitUser" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetRepositories">
+      <soap:operation soapAction="http://tempuri.org/IGitService/GetRepositories" style="document" />
       <wsdl:input>
         <soap:body use="literal" />
       </wsdl:input>

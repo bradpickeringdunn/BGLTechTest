@@ -15,12 +15,20 @@ namespace BGL.Web.GitService {
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
-    [System.Runtime.Serialization.DataContractAttribute(Name="GitUserDto", Namespace="http://schemas.datacontract.org/2004/07/GBL.Service.Api.Models.DTO")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="GenericServiceResult", Namespace="http://schemas.datacontract.org/2004/07/Backbone.Services.Results")]
     [System.SerializableAttribute()]
-    public partial class GitUserDto : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(GBL.Service.Api.Models.Result.GetRepositoriesResult))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(GBL.Service.Api.Models.Result.GetUserResult))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(object[]))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(GBL.Service.Api.Models.Request.GetUserRequest))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(GBL.Service.Api.Models.Request.GetRepositoriesRequest))]
+    public partial class GenericServiceResult : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
         
         [System.NonSerializedAttribute()]
         private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private object[] NotificationsField;
         
         [global::System.ComponentModel.BrowsableAttribute(false)]
         public System.Runtime.Serialization.ExtensionDataObject ExtensionData {
@@ -29,6 +37,19 @@ namespace BGL.Web.GitService {
             }
             set {
                 this.extensionDataField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public object[] Notifications {
+            get {
+                return this.NotificationsField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.NotificationsField, value) != true)) {
+                    this.NotificationsField = value;
+                    this.RaisePropertyChanged("Notifications");
+                }
             }
         }
         
@@ -47,10 +68,16 @@ namespace BGL.Web.GitService {
     public interface IGitService {
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IGitService/LoadGitUser", ReplyAction="http://tempuri.org/IGitService/LoadGitUserResponse")]
-        BGL.Web.GitService.GitUserDto LoadGitUser();
+        GBL.Service.Api.Models.Result.GetUserResult LoadGitUser(GBL.Service.Api.Models.Request.GetUserRequest request);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IGitService/LoadGitUser", ReplyAction="http://tempuri.org/IGitService/LoadGitUserResponse")]
-        System.Threading.Tasks.Task<BGL.Web.GitService.GitUserDto> LoadGitUserAsync();
+        System.Threading.Tasks.Task<GBL.Service.Api.Models.Result.GetUserResult> LoadGitUserAsync(GBL.Service.Api.Models.Request.GetUserRequest request);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IGitService/GetRepositories", ReplyAction="http://tempuri.org/IGitService/GetRepositoriesResponse")]
+        GBL.Service.Api.Models.Result.GetRepositoriesResult GetRepositories(GBL.Service.Api.Models.Request.GetRepositoriesRequest request);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IGitService/GetRepositories", ReplyAction="http://tempuri.org/IGitService/GetRepositoriesResponse")]
+        System.Threading.Tasks.Task<GBL.Service.Api.Models.Result.GetRepositoriesResult> GetRepositoriesAsync(GBL.Service.Api.Models.Request.GetRepositoriesRequest request);
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
@@ -80,12 +107,20 @@ namespace BGL.Web.GitService {
                 base(binding, remoteAddress) {
         }
         
-        public BGL.Web.GitService.GitUserDto LoadGitUser() {
-            return base.Channel.LoadGitUser();
+        public GBL.Service.Api.Models.Result.GetUserResult LoadGitUser(GBL.Service.Api.Models.Request.GetUserRequest request) {
+            return base.Channel.LoadGitUser(request);
         }
         
-        public System.Threading.Tasks.Task<BGL.Web.GitService.GitUserDto> LoadGitUserAsync() {
-            return base.Channel.LoadGitUserAsync();
+        public System.Threading.Tasks.Task<GBL.Service.Api.Models.Result.GetUserResult> LoadGitUserAsync(GBL.Service.Api.Models.Request.GetUserRequest request) {
+            return base.Channel.LoadGitUserAsync(request);
+        }
+        
+        public GBL.Service.Api.Models.Result.GetRepositoriesResult GetRepositories(GBL.Service.Api.Models.Request.GetRepositoriesRequest request) {
+            return base.Channel.GetRepositories(request);
+        }
+        
+        public System.Threading.Tasks.Task<GBL.Service.Api.Models.Result.GetRepositoriesResult> GetRepositoriesAsync(GBL.Service.Api.Models.Request.GetRepositoriesRequest request) {
+            return base.Channel.GetRepositoriesAsync(request);
         }
     }
 }

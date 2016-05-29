@@ -9,5 +9,8 @@ namespace GBL.Services.Api.Contracts
     {
         [OperationContract]
         GetUserResult LoadGitUser(GetUserRequest request);
+
+        [OperationContract]
+        GetRepositoriesResult GetRepositories(GetRepositoriesRequest request);
     }
 }

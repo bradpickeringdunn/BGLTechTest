@@ -13,7 +13,7 @@
     <GenerateSerializableTypes>true</GenerateSerializableTypes>
     <Serializer>Auto</Serializer>
     <UseSerializerForFaults>true</UseSerializerForFaults>
-    <ReferenceAllAssemblies>false</ReferenceAllAssemblies>
+    <ReferenceAllAssemblies>true</ReferenceAllAssemblies>
     <ReferencedAssemblies />
     <ReferencedDataContractTypes />
     <ServiceContractMappings />
@@ -22,11 +22,14 @@
     <MetadataSource Address="http://localhost:50622/GitService.svc" Protocol="http" SourceId="1" />
   </MetadataSources>
   <Metadata>
-    <MetadataFile FileName="GitService.xsd" MetadataType="Schema" ID="513139dc-8fa4-4e74-a95b-3b653e96f9b9" SourceId="1" SourceUrl="http://localhost:50622/GitService.svc?xsd=xsd0" />
     <MetadataFile FileName="GitService.wsdl" MetadataType="Wsdl" ID="a9e5b573-a942-426c-a836-a07dfd3c7169" SourceId="1" SourceUrl="http://localhost:50622/GitService.svc?wsdl" />
-    <MetadataFile FileName="GitService1.xsd" MetadataType="Schema" ID="9dedf20c-6e4b-46c6-911f-4e86693f102f" SourceId="1" SourceUrl="http://localhost:50622/GitService.svc?xsd=xsd1" />
     <MetadataFile FileName="GitService.disco" MetadataType="Disco" ID="520d277e-ff9f-4385-8ef9-dd9622ff8af7" SourceId="1" SourceUrl="http://localhost:50622/GitService.svc?disco" />
+    <MetadataFile FileName="GitService3.xsd" MetadataType="Schema" ID="7c41a371-019b-4883-b696-4748be7246af" SourceId="1" SourceUrl="http://localhost:50622/GitService.svc?xsd=xsd5" />
+    <MetadataFile FileName="GitService31.xsd" MetadataType="Schema" ID="45f0d061-da84-4a8d-bf03-61065513f4e8" SourceId="1" SourceUrl="http://localhost:50622/GitService.svc?xsd=xsd4" />
+    <MetadataFile FileName="GitService32.xsd" MetadataType="Schema" ID="8e6c0864-160a-4b7d-a8d0-3832c5347cad" SourceId="1" SourceUrl="http://localhost:50622/GitService.svc?xsd=xsd3" />
     <MetadataFile FileName="GitService2.xsd" MetadataType="Schema" ID="2a0d5678-6544-4b33-8624-7df47eca3603" SourceId="1" SourceUrl="http://localhost:50622/GitService.svc?xsd=xsd2" />
+    <MetadataFile FileName="GitService1.xsd" MetadataType="Schema" ID="9dedf20c-6e4b-46c6-911f-4e86693f102f" SourceId="1" SourceUrl="http://localhost:50622/GitService.svc?xsd=xsd1" />
+    <MetadataFile FileName="GitService.xsd" MetadataType="Schema" ID="513139dc-8fa4-4e74-a95b-3b653e96f9b9" SourceId="1" SourceUrl="http://localhost:50622/GitService.svc?xsd=xsd0" />
   </Metadata>
   <Extensions>
     <ExtensionFile FileName="configuration91.svcinfo" Name="configuration91.svcinfo" />
