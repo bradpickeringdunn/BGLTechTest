@@ -8,15 +8,15 @@ namespace BGL.Web.Rules.Validation
 {
     public static class ServiceResultValidation
     {
-        public static bool IsValid(this GetUserResult result)
+        public static bool IsValid(this GetGitUserResult result)
         {
             var status = false;
 
-            if(result.IsNotNull() && result.User.IsNotNull())
+            if (result.IsNotNull() && result.User.IsNotNull())
             {
                 var user = result.User;
 
-                if(user.Name.IsNotNullOrEmpty() && user.AvatarUrl.IsNotNullOrEmpty() && user.Location.IsNotNullOrEmpty())
+                if (user.Name.IsNotNullOrEmpty() || user.AvatarUrl.IsNotNullOrEmpty() || user.Location.IsNotNullOrEmpty())
                 {
                     status = true;
                 }

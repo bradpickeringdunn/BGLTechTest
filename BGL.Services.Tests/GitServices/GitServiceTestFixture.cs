@@ -29,7 +29,7 @@ namespace BGL.Services.Tests.GitServices
 
             A.CallTo(() => restClient.Execute(null)).WithAnyArguments().Returns(UserJson());
 
-            var userResult = new GitService(logger, restClient).LoadGitUser(new GetUserRequest("Username"));
+            var userResult = new GitService(logger, restClient).LoadGitUser(new GetGitUserRequest("Username"));
 
             Assert.IsNotNull(userResult);
             Assert.IsNotNull(userResult.User);
@@ -49,7 +49,7 @@ namespace BGL.Services.Tests.GitServices
             var jsonResult = RepositoryJson();
             A.CallTo(() => restClient.Execute(null)).WithAnyArguments().Returns(jsonResult);
 
-            var userRepository = new GitService(logger, restClient).GetRepositories(new GetRepositoriesRequest() {Username = "test name" });
+            var userRepository = new GitService(logger, restClient).GetRepositories(new GetGitRepositoriesRequest() {Username = "test name" });
 
             Assert.IsNotNull(userRepository);
             Assert.IsNotNull(userRepository.Repositories.Any());

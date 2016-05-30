@@ -25,9 +25,9 @@ namespace BGL.Services.GitServices
             this.RestClient = restClient;
         }
 
-        public GetRepositoriesResult GetRepositories(GetRepositoriesRequest request)
+        public GetGitRepositoriesResult GetRepositories(GetGitRepositoriesRequest request)
         {
-            return TryExecute<GetRepositoriesResult>(request, (result) =>
+            return TryExecute<GetGitRepositoriesResult>(request, (result) =>
             {
                 Guard.ArgumentNotNull(request, "request");
                 Guard.IsTrue(request.Username.IsNotNullOrEmpty());
@@ -46,7 +46,7 @@ namespace BGL.Services.GitServices
 
                 if (!result.Notifications.Any())
                 {
-                    var repos = JsonConvert.DeserializeObject<List<GitRepository>>(queryResult.Content);
+                    var repos = JsonConvert.DeserializeObject<List<GitRepositoryModel>>(queryResult.Content);
                     Guard.ArgumentNotNull(repos, "repos");
 
                     foreach (var repo in repos)
@@ -62,9 +62,9 @@ namespace BGL.Services.GitServices
         }
             
         
-        public GetUserResult LoadGitUser(GetUserRequest request)
+        public GetGitUserResult LoadGitUser(GetGitUserRequest request)
         {
-            return TryExecute<GetUserResult>(request, (result) =>
+            return TryExecute<GetGitUserResult>(request, (result) =>
           {
               Guard.ArgumentNotNull(request, "request");
                             
@@ -73,7 +73,7 @@ namespace BGL.Services.GitServices
 
               var queryResult = RestClient.Execute(restRequest);
 
-              var user = JsonConvert.DeserializeObject<GitUser>(queryResult.Content);
+              var user = JsonConvert.DeserializeObject<GitUserModel>(queryResult.Content);
 
               result.User.Name = user.name;
               result.User.AvatarUrl = user.avatar_url;

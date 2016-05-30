@@ -5,14 +5,14 @@ using System.Runtime.Serialization;
 namespace BGL.Services.Api.Models.Result
 {
     [DataContract]
-    public class GetUserResult : GenericServiceResult
+    public class GetGitUserResult : GenericServiceResult
     {
         [DataMember]
-        public UserDto User { get; set; }
+        public GitUserDto User { get; set; }
 
-        public GetUserResult()
+        public GetGitUserResult()
         {
-            this.User = new UserDto();
+            this.User = new GitUserDto();
         }
         
     }

@@ -1,6 +1,6 @@
 ﻿namespace BGL.Services.GitServices.Models
 {
-    internal class GitUser
+    internal class GitUserModel
     {
         public string avatar_url { get; set; }
 

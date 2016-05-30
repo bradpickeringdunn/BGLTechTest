@@ -8,9 +8,9 @@ namespace BGL.Services.Api.Contracts
     public interface IGitService
     {
         [OperationContract]
-        GetUserResult LoadGitUser(GetUserRequest request);
+        GetGitUserResult LoadGitUser(GetGitUserRequest request);
 
         [OperationContract]
-        GetRepositoriesResult GetRepositories(GetRepositoriesRequest request);
+        GetGitRepositoriesResult GetRepositories(GetGitRepositoriesRequest request);
     }
 }

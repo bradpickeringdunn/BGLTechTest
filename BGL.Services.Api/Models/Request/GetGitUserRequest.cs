@@ -3,9 +3,14 @@
 namespace BGL.Services.Api.Models.Request
 {
     [DataContract]
-    public class GetRepositoriesRequest
+    public class GetGitUserRequest
     {
         [DataMember]
         public string Username { get; set; }
+
+        public GetGitUserRequest(string username)
+        {
+            this.Username = username;
+        }
     }
 }

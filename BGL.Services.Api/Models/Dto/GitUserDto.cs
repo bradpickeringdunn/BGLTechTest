@@ -4,7 +4,7 @@ using System.Runtime.Serialization;
 namespace BGL.Services.Api.Models.Dto
 {
     [DataContract]
-    public class UserDto
+    public class GitUserDto
     {
         [DataMember]
         public string Name { get; set; }

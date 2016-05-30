@@ -20,14 +20,14 @@ namespace BGL.Web.Tests.Actions
             var logger = A.Fake<ILogger>();
             var gitService = A.Fake<IGitService>();
 
-            var user = new UserDto()
+            var user = new GitUserDto()
             {
                 AvatarUrl = "Url",
                 Location = "location",
                 Name = "Test user"
             };
 
-            A.CallTo(() => gitService.LoadGitUser(null)).WithAnyArguments().Returns(new GetUserResult()
+            A.CallTo(() => gitService.LoadGitUser(null)).WithAnyArguments().Returns(new GetGitUserResult()
             {
                 User = user
             });
@@ -43,7 +43,7 @@ namespace BGL.Web.Tests.Actions
                     new GitRepositoryDto() {Name = "Test repo 6", StargazersCount = 122 }
                 };
 
-            A.CallTo(() => gitService.GetRepositories(null)).WithAnyArguments().Returns(new GetRepositoriesResult()
+            A.CallTo(() => gitService.GetRepositories(null)).WithAnyArguments().Returns(new GetGitRepositoriesResult()
             {
                 Repositories = repos
             });
@@ -70,14 +70,14 @@ namespace BGL.Web.Tests.Actions
             var logger = A.Fake<ILogger>();
             var gitService = A.Fake<IGitService>();
 
-            var user = new UserDto()
+            var user = new GitUserDto()
             {
                 AvatarUrl = "Url",
                 Location = "location",
                 Name = "Test user"
             };
 
-            A.CallTo(() => gitService.LoadGitUser(null)).WithAnyArguments().Returns(new GetUserResult()
+            A.CallTo(() => gitService.LoadGitUser(null)).WithAnyArguments().Returns(new GetGitUserResult()
             {
                 User = user
             });
@@ -85,7 +85,7 @@ namespace BGL.Web.Tests.Actions
             var repos = new List<GitRepositoryDto>()
                 {};
 
-            A.CallTo(() => gitService.GetRepositories(null)).WithAnyArguments().Returns(new GetRepositoriesResult()
+            A.CallTo(() => gitService.GetRepositories(null)).WithAnyArguments().Returns(new GetGitRepositoriesResult()
             {
                 Repositories = repos
             });
@@ -117,7 +117,7 @@ namespace BGL.Web.Tests.Actions
             var repos = new List<GitRepositoryDto>()
             { };
 
-            A.CallTo(() => gitService.GetRepositories(null)).WithAnyArguments().Returns(new GetRepositoriesResult()
+            A.CallTo(() => gitService.GetRepositories(null)).WithAnyArguments().Returns(new GetGitRepositoriesResult()
             {
                 Repositories = repos
             });
@@ -138,14 +138,14 @@ namespace BGL.Web.Tests.Actions
             var logger = A.Fake<ILogger>();
             var gitService = A.Fake<IGitService>();
 
-            var user = new UserDto()
+            var user = new GitUserDto()
             {
                 AvatarUrl = "Url",
                 Location = "location",
                 Name = "Test user"
             };
 
-            A.CallTo(() => gitService.LoadGitUser(null)).WithAnyArguments().Returns(new GetUserResult()
+            A.CallTo(() => gitService.LoadGitUser(null)).WithAnyArguments().Returns(new GetGitUserResult()
             {
                 User = user
             });
@@ -168,14 +168,14 @@ namespace BGL.Web.Tests.Actions
             var logger = A.Fake<ILogger>();
             var gitService = A.Fake<IGitService>();
 
-            var user = new UserDto()
+            var user = new GitUserDto()
             {
                 AvatarUrl = "Url",
                 Location = "location",
                 Name = "Test user"
             };
 
-            A.CallTo(() => gitService.LoadGitUser(null)).WithAnyArguments().Returns(new GetUserResult()
+            A.CallTo(() => gitService.LoadGitUser(null)).WithAnyArguments().Returns(new GetGitUserResult()
             {
                 User = user
             });
@@ -191,7 +191,7 @@ namespace BGL.Web.Tests.Actions
                     new GitRepositoryDto() {Name = "Test repo 6", StargazersCount = 122 }
                 };
 
-            A.CallTo(() => gitService.GetRepositories(null)).WithAnyArguments().Returns(new GetRepositoriesResult()
+            A.CallTo(() => gitService.GetRepositories(null)).WithAnyArguments().Returns(new GetGitRepositoriesResult()
             {
                 Repositories = repos
             });

@@ -12,9 +12,9 @@ namespace BGL.Web.Tests.Rules.Validation
         [TestMethod]
         public void Ensure_GetUserResult_Is_Valid()
         {
-            var result = new GetUserResult()
+            var result = new GetGitUserResult()
             {
-                User = new UserDto()
+                User = new GitUserDto()
                 {
                     AvatarUrl = "Null",
                     Name = "Name",

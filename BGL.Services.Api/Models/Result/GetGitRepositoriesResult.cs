@@ -6,12 +6,12 @@ using System.Runtime.Serialization;
 namespace BGL.Services.Api.Models.Result
 {
     [DataContract]
-    public class GetRepositoriesResult: GenericServiceResult
+    public class GetGitRepositoriesResult: GenericServiceResult
     {
         [DataMember]
         public IList<GitRepositoryDto> Repositories { get; set; }
 
-        public GetRepositoriesResult()
+        public GetGitRepositoriesResult()
         {
             this.Repositories = new List<GitRepositoryDto>();
         }

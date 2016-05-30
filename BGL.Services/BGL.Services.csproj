@@ -92,9 +92,9 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="BaseService.cs" />
-    <Compile Include="GitServices\Models\GitRepository.cs" />
+    <Compile Include="GitServices\Models\GitRepositoryModel.cs" />
     <Compile Include="GitServices\GitService.cs" />
-    <Compile Include="GitServices\Models\GitUser.cs" />
+    <Compile Include="GitServices\Models\GitUserModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
