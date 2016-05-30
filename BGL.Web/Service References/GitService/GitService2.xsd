@@ -2,31 +2,31 @@
 <xs:schema xmlns:tns="http://tempuri.org/" elementFormDefault="qualified" targetNamespace="http://tempuri.org/" xmlns:xs="http://www.w3.org/2001/XMLSchema">
   <xs:import schemaLocation="http://localhost:54307/GitService.svc?xsd=xsd2" namespace="http://schemas.datacontract.org/2004/07/BGL.Services.Api.Models.Request" />
   <xs:import schemaLocation="http://localhost:54307/GitService.svc?xsd=xsd3" namespace="http://schemas.datacontract.org/2004/07/BGL.Services.Api.Models.Result" />
-  <xs:element name="LoadGitUser">
+  <xs:element name="GetGitUser">
     <xs:complexType>
       <xs:sequence>
         <xs:element xmlns:q1="http://schemas.datacontract.org/2004/07/BGL.Services.Api.Models.Request" minOccurs="0" name="request" nillable="true" type="q1:GetGitUserRequest" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
-  <xs:element name="LoadGitUserResponse">
+  <xs:element name="GetGitUserResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q2="http://schemas.datacontract.org/2004/07/BGL.Services.Api.Models.Result" minOccurs="0" name="LoadGitUserResult" nillable="true" type="q2:GetGitUserResult" />
+        <xs:element xmlns:q2="http://schemas.datacontract.org/2004/07/BGL.Services.Api.Models.Result" minOccurs="0" name="GetGitUserResult" nillable="true" type="q2:GetGitUserResult" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
-  <xs:element name="GetRepositories">
+  <xs:element name="GetGitUserRepositories">
     <xs:complexType>
       <xs:sequence>
         <xs:element xmlns:q3="http://schemas.datacontract.org/2004/07/BGL.Services.Api.Models.Request" minOccurs="0" name="request" nillable="true" type="q3:GetGitRepositoriesRequest" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
-  <xs:element name="GetRepositoriesResponse">
+  <xs:element name="GetGitUserRepositoriesResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q4="http://schemas.datacontract.org/2004/07/BGL.Services.Api.Models.Result" minOccurs="0" name="GetRepositoriesResult" nillable="true" type="q4:GetGitRepositoriesResult" />
+        <xs:element xmlns:q4="http://schemas.datacontract.org/2004/07/BGL.Services.Api.Models.Result" minOccurs="0" name="GetGitUserRepositoriesResult" nillable="true" type="q4:GetGitRepositoriesResult" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>

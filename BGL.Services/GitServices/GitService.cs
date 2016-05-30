@@ -25,7 +25,7 @@ namespace BGL.Services.GitServices
             this.RestClient = restClient;
         }
 
-        public GetGitRepositoriesResult GetRepositories(GetGitRepositoriesRequest request)
+        public GetGitRepositoriesResult GetGitUserRepositories(GetGitRepositoriesRequest request)
         {
             return TryExecute<GetGitRepositoriesResult>(request, (result) =>
             {
@@ -62,7 +62,7 @@ namespace BGL.Services.GitServices
         }
             
         
-        public GetGitUserResult LoadGitUser(GetGitUserRequest request)
+        public GetGitUserResult GetGitUser(GetGitUserRequest request)
         {
             return TryExecute<GetGitUserResult>(request, (result) =>
           {

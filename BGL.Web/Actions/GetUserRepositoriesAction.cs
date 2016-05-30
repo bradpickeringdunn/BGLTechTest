@@ -3,7 +3,6 @@ using BGL.Web.ViewModels;
 using BGL.Web.Rules.Validation;
 using System;
 using System.Linq;
-using BGL.Web.Rules.Validation;
 using Airborne.Logging;
 using Airborne.Notifications;
 using Airborne;
@@ -66,7 +65,7 @@ namespace BGL.Web.Actions
         {
             var repository = new List<GitRepositoryDto>();
 
-            var repoResult = GitService.GetRepositories(new GetGitRepositoriesRequest() { Username = username });
+            var repoResult = GitService.GetGitUserRepositories(new GetGitRepositoriesRequest() { Username = username });
 
             if (repoResult.IsNull() || repoResult.Repositories.IsNull())
             {
@@ -93,7 +92,7 @@ namespace BGL.Web.Actions
         private GitUserDto GetGitUser(string username)
         {
             var user = new GitUserDto();
-            var userResult = GitService.LoadGitUser(new GetGitUserRequest(username));
+            var userResult = GitService.GetGitUser(new GetGitUserRequest(username));
 
             if (userResult.IsNull() || userResult.User.IsNull())
             {

@@ -227,17 +227,17 @@ namespace BGL.Web.GitService {
     [System.ServiceModel.ServiceContractAttribute(ConfigurationName="GitService.IGitService")]
     public interface IGitService {
         
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IGitService/LoadGitUser", ReplyAction="http://tempuri.org/IGitService/LoadGitUserResponse")]
-        BGL.Services.Api.Models.Result.GetGitUserResult LoadGitUser(BGL.Services.Api.Models.Request.GetGitUserRequest request);
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IGitService/GetGitUser", ReplyAction="http://tempuri.org/IGitService/GetGitUserResponse")]
+        BGL.Services.Api.Models.Result.GetGitUserResult GetGitUser(BGL.Services.Api.Models.Request.GetGitUserRequest request);
         
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IGitService/LoadGitUser", ReplyAction="http://tempuri.org/IGitService/LoadGitUserResponse")]
-        System.Threading.Tasks.Task<BGL.Services.Api.Models.Result.GetGitUserResult> LoadGitUserAsync(BGL.Services.Api.Models.Request.GetGitUserRequest request);
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IGitService/GetGitUser", ReplyAction="http://tempuri.org/IGitService/GetGitUserResponse")]
+        System.Threading.Tasks.Task<BGL.Services.Api.Models.Result.GetGitUserResult> GetGitUserAsync(BGL.Services.Api.Models.Request.GetGitUserRequest request);
         
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IGitService/GetRepositories", ReplyAction="http://tempuri.org/IGitService/GetRepositoriesResponse")]
-        BGL.Services.Api.Models.Result.GetGitRepositoriesResult GetRepositories(BGL.Services.Api.Models.Request.GetGitRepositoriesRequest request);
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IGitService/GetGitUserRepositories", ReplyAction="http://tempuri.org/IGitService/GetGitUserRepositoriesResponse")]
+        BGL.Services.Api.Models.Result.GetGitRepositoriesResult GetGitUserRepositories(BGL.Services.Api.Models.Request.GetGitRepositoriesRequest request);
         
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IGitService/GetRepositories", ReplyAction="http://tempuri.org/IGitService/GetRepositoriesResponse")]
-        System.Threading.Tasks.Task<BGL.Services.Api.Models.Result.GetGitRepositoriesResult> GetRepositoriesAsync(BGL.Services.Api.Models.Request.GetGitRepositoriesRequest request);
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IGitService/GetGitUserRepositories", ReplyAction="http://tempuri.org/IGitService/GetGitUserRepositoriesResponse")]
+        System.Threading.Tasks.Task<BGL.Services.Api.Models.Result.GetGitRepositoriesResult> GetGitUserRepositoriesAsync(BGL.Services.Api.Models.Request.GetGitRepositoriesRequest request);
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
@@ -267,20 +267,20 @@ namespace BGL.Web.GitService {
                 base(binding, remoteAddress) {
         }
         
-        public BGL.Services.Api.Models.Result.GetGitUserResult LoadGitUser(BGL.Services.Api.Models.Request.GetGitUserRequest request) {
-            return base.Channel.LoadGitUser(request);
+        public BGL.Services.Api.Models.Result.GetGitUserResult GetGitUser(BGL.Services.Api.Models.Request.GetGitUserRequest request) {
+            return base.Channel.GetGitUser(request);
         }
         
-        public System.Threading.Tasks.Task<BGL.Services.Api.Models.Result.GetGitUserResult> LoadGitUserAsync(BGL.Services.Api.Models.Request.GetGitUserRequest request) {
-            return base.Channel.LoadGitUserAsync(request);
+        public System.Threading.Tasks.Task<BGL.Services.Api.Models.Result.GetGitUserResult> GetGitUserAsync(BGL.Services.Api.Models.Request.GetGitUserRequest request) {
+            return base.Channel.GetGitUserAsync(request);
         }
         
-        public BGL.Services.Api.Models.Result.GetGitRepositoriesResult GetRepositories(BGL.Services.Api.Models.Request.GetGitRepositoriesRequest request) {
-            return base.Channel.GetRepositories(request);
+        public BGL.Services.Api.Models.Result.GetGitRepositoriesResult GetGitUserRepositories(BGL.Services.Api.Models.Request.GetGitRepositoriesRequest request) {
+            return base.Channel.GetGitUserRepositories(request);
         }
         
-        public System.Threading.Tasks.Task<BGL.Services.Api.Models.Result.GetGitRepositoriesResult> GetRepositoriesAsync(BGL.Services.Api.Models.Request.GetGitRepositoriesRequest request) {
-            return base.Channel.GetRepositoriesAsync(request);
+        public System.Threading.Tasks.Task<BGL.Services.Api.Models.Result.GetGitRepositoriesResult> GetGitUserRepositoriesAsync(BGL.Services.Api.Models.Request.GetGitRepositoriesRequest request) {
+            return base.Channel.GetGitUserRepositoriesAsync(request);
         }
     }
 }
