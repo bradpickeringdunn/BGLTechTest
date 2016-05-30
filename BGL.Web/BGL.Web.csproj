@@ -275,6 +275,10 @@
       <Project>{b5fb70fa-d36a-47b8-8bcf-d947f7361079}</Project>
       <Name>BGL.Services.Api</Name>
     </ProjectReference>
+    <ProjectReference Include="..\BGL.Web.Localization\BGL.Web.Localization.csproj">
+      <Project>{4461cb91-65d8-4de0-b67c-c52ed3078139}</Project>
+      <Name>BGL.Web.Localization</Name>
+    </ProjectReference>
   </ItemGroup>
   <ItemGroup>
     <WCFMetadataStorage Include="Service References\GitService\" />

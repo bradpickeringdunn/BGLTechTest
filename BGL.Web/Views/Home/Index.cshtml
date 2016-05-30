@@ -1,6 +1,6 @@
 ﻿@model BGL.Web.ViewModels.UserRepositorySearchViewModel
 @{
-    ViewBag.Title = "Home Page";
+    ViewBag.Title = @HomePageView.HomePageTitle;
 }
 
 @using Airborne.Notifications;
@@ -8,7 +8,7 @@
 <div class="row">
     <div class="col-md-4">
         <p>
-            Search for a users on git
+            @HomePageView.SearchForUserSectionTitle
         </p>
         @if (Model.IsNotNull() && Model.Notifications.Any())
         {

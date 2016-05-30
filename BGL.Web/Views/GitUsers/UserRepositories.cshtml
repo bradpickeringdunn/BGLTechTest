@@ -1,14 +1,14 @@
 ﻿@model BGL.Web.ViewModels.UserRepositoriesViewModel
 
 @{
-    ViewBag.Title = "UserRepositories";
+    ViewBag.Title = UserRepositoriesView.Title;
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<h2>UserRepositories</h2>
+<h2>@UserRepositoriesView.UsersRepositoriesSectionTitle</h2>
 
 <div>
-    <h4>User details</h4>
+    <h4>@UserRepositoriesView.UserDetails</h4>
     <hr />
     <ul>
         <li>@Html.LabelFor((m) => m.User.Name): @Model.User.Name</li>
@@ -21,7 +21,7 @@
         @if (!Model.Repositories.Any())
         {
             <p>
-                There are no repositories to be displayed.
+                @UserRepositoriesView.NoRepositoriesToDisplay
             </p>
         }
 

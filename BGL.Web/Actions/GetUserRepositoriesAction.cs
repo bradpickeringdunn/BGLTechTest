@@ -10,6 +10,7 @@ using Airborne;
 using BGL.Services.Api.Models.Request;
 using BGL.Services.Api.Models.Dto;
 using System.Collections.Generic;
+using BGL.Web.Localization;
 
 namespace BGL.Web.Actions
 {
@@ -69,7 +70,8 @@ namespace BGL.Web.Actions
 
             if (repoResult.IsNull() || repoResult.Repositories.IsNull())
             {
-                Notifications.AddError("An error occurred while retrieving the users repository.");
+                Logger.Error("The repository result returned was null. Username - {0}".FormatInvariantCulture(username));
+                Notifications.AddError(Errors.GetGitRepositoryError.FormatInvariantCulture(username));
             }
 
             if (!Notifications.HasErrors())
@@ -95,7 +97,8 @@ namespace BGL.Web.Actions
 
             if (userResult.IsNull() || userResult.User.IsNull())
             {
-                Notifications.AddError(("An error occurred while retrieving the user."));
+                Logger.Error("The user returned by the git service was null. Username - {0}".FormatInvariantCulture(username));
+                Notifications.AddError(Errors.GetGitUserError.FormatInvariantCulture(username));
             }
 
             if (!Notifications.HasErrors())
@@ -105,7 +108,7 @@ namespace BGL.Web.Actions
 
             if (!Notifications.HasErrors() &&!userResult.IsValid())
             {
-                Notifications.AddMessage(new Notification("No user was found with the user name {0}".FormatInvariantCulture(username)));
+                Notifications.AddMessage(new Notification(Messages.NoUserFound.FormatInvariantCulture(username)));
             }
 
             return user;
