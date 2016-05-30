@@ -49,12 +49,7 @@ namespace BGL.Services.GitServices
                     var repos = JsonConvert.DeserializeObject<List<GitRepository>>(queryResult.Content);
                     Guard.ArgumentNotNull(repos, "repos");
 
-                    var repositories = (from r in repos
-                                        orderby r.stargazers_count descending
-                                        select r)
-                                        .Take(5).ToList();
-
-                    foreach (var repo in repositories)
+                    foreach (var repo in repos)
                     {
                         result.Repositories.Add(new GitRepositoryDto()
                         {

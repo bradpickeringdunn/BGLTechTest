@@ -7,6 +7,9 @@ using BGL.Web.Rules.Validation;
 using Airborne.Logging;
 using Airborne.Notifications;
 using Airborne;
+using BGL.Services.Api.Models.Request;
+using BGL.Services.Api.Models.Dto;
+using System.Collections.Generic;
 
 namespace BGL.Web.Actions
 {
@@ -20,7 +23,9 @@ namespace BGL.Web.Actions
 
         public Func<NotificationCollection, T> OnFailed { get; set; }
 
-        public Func<ErrorViewModel, T> OnError { get; set; }
+        public Func<NotificationCollection, T> OnError { get; set; }
+
+        private NotificationCollection Notifications { get; set; }
 
         public GetUserRepositoriesAction(GitService.IGitService gitService, ILogger logger)
         {
@@ -29,40 +34,81 @@ namespace BGL.Web.Actions
 
             this.GitService = gitService;
             this.Logger = logger;
+            this.Notifications = NotificationCollection.CreateEmpty();
         }
 
-        public T Execute(string userName)
+        public T Execute(string username)
         {
             Guard.ArgumentNotNull(OnSuccess, "OnSuccess");
             Guard.ArgumentNotNull(OnFailed, "OnFailed");
+            Guard.ArgumentNotNull(OnError, "OnError");
+            Guard.ArgumentNotEmpty(username, "username");
 
             var model = new UserRepositoriesViewModel();
-            var userResult = GitService.LoadGitUser(new BGL.Services.Api.Models.Request.GetUserRequest(userName));
 
-            var notifications = new NotificationCollection();
-
-            if (!userResult.IsValid())
+            model.User = GetGitUser(username);
+            
+            if (!Notifications.HasErrors())
             {
-                notifications.AddError("No user was found with the username {0}".FormatInvariantCulture(userName));
+                model.Repositories = GetUserRepository(username);
             }
 
-            if (!notifications.HasErrors())
+            if (Notifications.HasErrors())
             {
-                var repoResult = GitService.GetRepositories(new BGL.Services.Api.Models.Request.GetRepositoriesRequest() { Username = userName });
-
-                if (repoResult.IsNull() || repoResult.Repositories.IsNull())
-                {
-                    notifications.AddException(new Exception("An error occured while retrieving the users repository."));
-                }
-
-                if (!notifications.HasErrors())
-                {
-                    model.User = userResult.User;
-                    model.Repositories = repoResult.Repositories;
-                }
+                return OnError(Notifications);
             }
 
-            return notifications.Any() ?OnFailed(notifications): OnSuccess(model);
+            return Notifications.HasMessages() ?OnFailed(Notifications): OnSuccess(model);
+        }
+
+        private IList<GitRepositoryDto> GetUserRepository(string username)
+        {
+            var repository = new List<GitRepositoryDto>();
+
+            var repoResult = GitService.GetRepositories(new GetRepositoriesRequest() { Username = username });
+
+            if (repoResult.IsNull() || repoResult.Repositories.IsNull())
+            {
+                Notifications.AddError("An error occurred while retrieving the users repository.");
+            }
+
+            if (!Notifications.HasErrors())
+            {
+                repository = OrderByStargazers(repoResult.Repositories);
+            }
+
+            return repository;
+        }
+
+        private List<GitRepositoryDto> OrderByStargazers(IList<GitRepositoryDto> repositories)
+        {
+            return (from r in repositories
+                    orderby r.StargazersCount descending
+                    select r)
+                    .Take(Config.RepositoryCount).ToList();
+        }
+
+        private UserDto GetGitUser(string username)
+        {
+            var user = new UserDto();
+            var userResult = GitService.LoadGitUser(new GetUserRequest(username));
+
+            if (userResult.IsNull() || userResult.User.IsNull())
+            {
+                Notifications.AddError(("An error occurred while retrieving the user."));
+            }
+
+            if (!Notifications.HasErrors())
+            {
+                user = userResult.User;
+            }
+
+            if (!Notifications.HasErrors() &&!userResult.IsValid())
+            {
+                Notifications.AddMessage(new Notification("No user was found with the user name {0}".FormatInvariantCulture(username)));
+            }
+
+            return user;
         }
     }
 }

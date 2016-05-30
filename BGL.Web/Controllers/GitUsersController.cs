@@ -33,7 +33,8 @@ namespace BGL.Web.Controllers
                         {
                             Notifications = messages
                         });
-                    }
+                    },
+                    OnError = (errors) => View(ViewPath.ErrorPage, errors)
                 }.Execute(model.Username);
             }
 

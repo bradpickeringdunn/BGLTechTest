@@ -67,7 +67,6 @@
     </Otherwise>
   </Choose>
   <ItemGroup>
-    <Compile Include="ConfigTestFixture.cs" />
     <Compile Include="GitServices\GitServiceTestFixture.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -83,6 +82,10 @@
     <ProjectReference Include="..\BGL.Services\BGL.Services.csproj">
       <Project>{74F24367-3CC9-462B-B10F-9E41F152E207}</Project>
       <Name>BGL.Services</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\BGL.Web\BGL.Web.csproj">
+      <Project>{67E74230-B218-42B4-8C44-6FF16876457D}</Project>
+      <Name>BGL.Web</Name>
     </ProjectReference>
   </ItemGroup>
   <Choose>

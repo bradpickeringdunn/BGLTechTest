@@ -36,6 +36,10 @@
     <Reference Include="Airborne">
       <HintPath>..\Libraries\Airborne.dll</HintPath>
     </Reference>
+    <Reference Include="Airborne.Services.ClientAdapter, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\Libraries\Airborne.Services.ClientAdapter.dll</HintPath>
+    </Reference>
     <Reference Include="FakeItEasy, Version=2.0.0.0, Culture=neutral, PublicKeyToken=eff28e2146d5fd2c, processorArchitecture=MSIL">
       <HintPath>..\packages\FakeItEasy.2.0.0\lib\net40\FakeItEasy.dll</HintPath>
       <Private>True</Private>
@@ -93,7 +97,8 @@
   <ItemGroup>
     <Compile Include="Actions\GetUserRepositoriesActionTestFixture.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Controllers\HomeControllerTest.cs" />
+    <Compile Include="ConfigTestFixture.cs" />
+    <Compile Include="Rules\Validation\ServiceResultValidationTestFixture.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="App.config" />

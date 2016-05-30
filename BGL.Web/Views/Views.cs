@@ -9,5 +9,6 @@ namespace BGL.Web.Views
     {
         public const string UserRepositories = "~/views/GitUsers/UserRepositories.cshtml";
         public const string SearchUserRepositories = "~/views/home/index.cshtml";
+        public const string ErrorPage = "~/vies/error/index.cshtml";
     }
 }
