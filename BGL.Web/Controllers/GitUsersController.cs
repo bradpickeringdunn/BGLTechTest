@@ -1,22 +1,43 @@
-﻿using Backbone.Logging;
+﻿using Airborne;
+using Airborne.Logging;
+using BGL.Web.ViewModels;
+using BGL.Web.Views;
 using System.Web.Mvc;
 
 namespace BGL.Web.Controllers
 {
     public class GitUsersController : BaseController
     {
-        private ILogger logger = new DebugLogger();
+        private GitService.IGitService GitService = new GitService.GitServiceClient();
 
-        private GitService.IGitService gitService = new GitService.GitServiceClient();
+        public GitUsersController(ILogger logger, GitService.IGitService gitService)
+            :base(logger)
+        {
+            Guard.ArgumentNotNull(gitService, "gitService");
+
+            this.GitService = gitService;
+        }
 
             // GET: GitUsers
             [HttpGet]
-        public ActionResult Index(string userName)
+        public ActionResult Index(UserRepositorySearchViewModel model)
         {
-            return new Actions.GetUserRepositoriesAction<ActionResult>(this.gitService, this.logger)
+            if (ModelState.IsValid)
             {
-                OnSuccess = (model) => View(Views.Views.GitUsers.UserRepositories, model)
-            }.Execute(userName);
+                return new Actions.GetUserRepositoriesAction<ActionResult>(GitService, Logger)
+                {
+                    OnSuccess = (m) => View(ViewPath.UserRepositories, m),
+                    OnFailed = (messages) =>
+                    {
+                        return View(ViewPath.SearchUserRepositories, new UserRepositorySearchViewModel()
+                        {
+                            Notifications = messages
+                        });
+                    }
+                }.Execute(model.Username);
+            }
+
+            return View(Views.ViewPath.SearchUserRepositories,model);
         }
     }
 }

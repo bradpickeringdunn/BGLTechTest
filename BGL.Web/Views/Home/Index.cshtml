@@ -1,17 +1,29 @@
-﻿@{
+﻿@model BGL.Web.ViewModels.UserRepositorySearchViewModel
+@{
     ViewBag.Title = "Home Page";
 }
 
+@using Airborne.Notifications;
+
 <div class="row">
     <div class="col-md-4">
-        <h2>GBL Tech test</h2>
         <p>
             Search for a users on git
         </p>
+        @if (Model.IsNotNull() && Model.Notifications.Any())
+        {
+            foreach (var notification in Model.Notifications)
+            {
+                <div>@notification.Text</div>
+            }
+        }
         @using (Html.BeginForm("Index", "GitUsers", FormMethod.Get))
         {
-            <input type="tel" name="userName" id="userName" placeholder="Username"/>
+            @Html.ValidationSummary(true)
+            @Html.TextBoxFor((model) => model.Username)
             <input type="submit" title="Search"/>
+
+            @Html.ValidationMessageFor((m) => m.Username)
         }
     </div>
 </div>

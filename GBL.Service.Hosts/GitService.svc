@@ -1,4 +1,0 @@
-﻿<%@ ServiceHost Language="C#" 
-    Debug="true" 
-    Service="GBL.Services.GitService" 
-    Factory="GBL.Service.Hosts.WcfServiceFactory, GBL.Service.Hosts" %>

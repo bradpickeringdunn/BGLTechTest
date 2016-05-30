@@ -1,11 +1,12 @@
-﻿using Backbone.Logging;
-using Backbone.Utilities;
-using BGL.Web.GitService;
+﻿using BGL.Web.GitService;
 using BGL.Web.ViewModels;
+using BGL.Web.Rules.Validation;
 using System;
-using System.Collections.Generic;
 using System.Linq;
-using System.Web;
+using BGL.Web.Rules.Validation;
+using Airborne.Logging;
+using Airborne.Notifications;
+using Airborne;
 
 namespace BGL.Web.Actions
 {
@@ -17,12 +18,14 @@ namespace BGL.Web.Actions
 
         public Func<UserRepositoriesViewModel, T> OnSuccess { get; set; }
 
-        public Func<BaseViewModel, T> OnFailed { get; set; }
+        public Func<NotificationCollection, T> OnFailed { get; set; }
+
+        public Func<ErrorViewModel, T> OnError { get; set; }
 
         public GetUserRepositoriesAction(GitService.IGitService gitService, ILogger logger)
         {
-            Guardian.ArgumentNotNull(gitService, "gitService");
-            Guardian.ArgumentNotNull(logger, "logger");
+            Guard.ArgumentNotNull(gitService, "gitService");
+            Guard.ArgumentNotNull(logger, "logger");
 
             this.GitService = gitService;
             this.Logger = logger;
@@ -30,18 +33,36 @@ namespace BGL.Web.Actions
 
         public T Execute(string userName)
         {
-            var service = new GitService.GitServiceClient();
-            var x = service.LoadGitUser(new GBL.Service.Api.Models.Request.GetUserRequest(userName));
+            Guard.ArgumentNotNull(OnSuccess, "OnSuccess");
+            Guard.ArgumentNotNull(OnFailed, "OnFailed");
 
-            var y = service.GetRepositories(new GBL.Service.Api.Models.Request.GetRepositoriesRequest() { Username = userName });
+            var model = new UserRepositoriesViewModel();
+            var userResult = GitService.LoadGitUser(new BGL.Services.Api.Models.Request.GetUserRequest(userName));
 
-            var model = new UserRepositoriesViewModel()
+            var notifications = new NotificationCollection();
+
+            if (!userResult.IsValid())
             {
-                User = x.User,
-                Repositories = y.Repositories
-            };
+                notifications.AddError("No user was found with the username {0}".FormatInvariantCulture(userName));
+            }
 
-            return OnSuccess(model);
+            if (!notifications.HasErrors())
+            {
+                var repoResult = GitService.GetRepositories(new BGL.Services.Api.Models.Request.GetRepositoriesRequest() { Username = userName });
+
+                if (repoResult.IsNull() || repoResult.Repositories.IsNull())
+                {
+                    notifications.AddException(new Exception("An error occured while retrieving the users repository."));
+                }
+
+                if (!notifications.HasErrors())
+                {
+                    model.User = userResult.User;
+                    model.Repositories = repoResult.Repositories;
+                }
+            }
+
+            return notifications.Any() ?OnFailed(notifications): OnSuccess(model);
         }
     }
 }

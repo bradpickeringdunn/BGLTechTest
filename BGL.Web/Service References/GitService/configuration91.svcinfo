@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<SavedWcfConfigurationInformation xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" Version="9.1" CheckSum="hXhYo63I1zyHtVs979c0lUGF6qM=">
+<SavedWcfConfigurationInformation xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" Version="9.1" CheckSum="UzSk4xZ8MEp1oaWcCk/ow5+yCfQ=">
   <bindingConfigurations>
     <bindingConfiguration bindingType="basicHttpBinding" name="BasicHttpBinding_IGitService">
       <properties>
@@ -112,10 +112,10 @@
     </bindingConfiguration>
   </bindingConfigurations>
   <endpoints>
-    <endpoint name="BasicHttpBinding_IGitService" contract="GitService.IGitService" bindingType="basicHttpBinding" address="http://localhost:50622/GitService.svc" bindingConfiguration="BasicHttpBinding_IGitService">
+    <endpoint name="BasicHttpBinding_IGitService" contract="GitService.IGitService" bindingType="basicHttpBinding" address="http://localhost:54307/GitService.svc" bindingConfiguration="BasicHttpBinding_IGitService">
       <properties>
         <property path="/address" isComplexType="false" isExplicitlyDefined="true" clrType="System.Uri, System, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-          <serializedValue>http://localhost:50622/GitService.svc</serializedValue>
+          <serializedValue>http://localhost:54307/GitService.svc</serializedValue>
         </property>
         <property path="/behaviorConfiguration" isComplexType="false" isExplicitlyDefined="false" clrType="System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
           <serializedValue />

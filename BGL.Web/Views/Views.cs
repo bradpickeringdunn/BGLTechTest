@@ -5,11 +5,9 @@ using System.Web;
 
 namespace BGL.Web.Views
 {
-    public static class Views
+    public static class ViewPath
     {
-        public static class GitUsers
-        {
-            public const string UserRepositories = "~/views/GitUsers/UserRepositories.cshtml";
-        }
+        public const string UserRepositories = "~/views/GitUsers/UserRepositories.cshtml";
+        public const string SearchUserRepositories = "~/views/home/index.cshtml";
     }
 }

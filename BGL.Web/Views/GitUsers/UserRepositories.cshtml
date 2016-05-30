@@ -15,15 +15,29 @@
         <li>@Html.LabelFor((m) => m.User.Location): @Model.User.Location</li>
         <li>@Html.LabelFor((m) => m.User.AvatarUrl): @Model.User.AvatarUrl</li>
     </ul>
-                <dl class="dl-horizontal"></dl>
-                <div>
-                    <ol>
-                        @foreach (var repo in Model.Repositories)
+    
+    <dlv class="dl-horizontal"></dlv>
+    <div>
+        @if (!Model.Repositories.Any())
+        {
+            <p>
+                There are no repositories to be displayed.
+            </p>
+        }
+
+        @if (Model.Repositories.Any())
+        {
+            <p>
+                Users repositories
+            </p>
+         <ol>
+            @foreach (var repo in Model.Repositories)
             {
-                            <li>@repo.Name< - @repo.StargazersCount</li>
-                        }
-                    </ol>
-                </div>
+                <li>@repo.Name< - @repo.StargazersCount</li>
+            }
+        </ol>
+        }
+    </div>
 </div>
 <p>
     @Html.ActionLink("Edit", "Edit", new { /* id = Model.PrimaryKey */ }) |

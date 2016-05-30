@@ -9,12 +9,12 @@ namespace BGL.Web.ViewModels
     {
         public UserRepositoriesViewModel()
         {
-            this.Repositories = new List<GBL.Service.Api.Models.Dto.GitRepositoryDto>();
-            this.User = new GBL.Service.Api.Models.Dto.UserDto();
+            this.Repositories = new List<BGL.Services.Api.Models.Dto.GitRepositoryDto>();
+            this.User = new BGL.Services.Api.Models.Dto.UserDto();
         }
 
-        public GBL.Service.Api.Models.Dto.UserDto User { get; set; }
+        public BGL.Services.Api.Models.Dto.UserDto User { get; set; }
 
-        public IList<GBL.Service.Api.Models.Dto.GitRepositoryDto> Repositories { get; set; }
+        public IList<BGL.Services.Api.Models.Dto.GitRepositoryDto> Repositories { get; set; }
     }
 }
