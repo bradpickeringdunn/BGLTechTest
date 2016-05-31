@@ -13,11 +13,22 @@ using BGL.Web.Localization;
 
 namespace BGL.Web.Actions
 {
+    /// <summary>
+    /// Client logic, ignorant of framework.  Returns generic result.  (MVC action, dynamic, etc..) 
+    /// </summary>
     public class GetUserRepositoriesAction<T> where T : class
     {
+        #region Private Properties
+
         private GitService.IGitService GitService;
 
         private ILogger Logger;
+
+        private NotificationCollection Notifications { get; set; }
+
+        #endregion
+
+        #region Public Properties
 
         public Func<UserRepositoriesViewModel, T> OnSuccess { get; set; }
 
@@ -25,8 +36,8 @@ namespace BGL.Web.Actions
 
         public Func<NotificationCollection, T> OnError { get; set; }
 
-        private NotificationCollection Notifications { get; set; }
-
+        #endregion
+                
         public GetUserRepositoriesAction(GitService.IGitService gitService, ILogger logger)
         {
             Guard.ArgumentNotNull(gitService, "gitService");
@@ -60,6 +71,8 @@ namespace BGL.Web.Actions
 
             return Notifications.HasMessages() ?OnFailed(Notifications): OnSuccess(model);
         }
+
+        #region Private Methods
 
         private IList<GitRepositoryDto> GetUserRepository(string username)
         {
@@ -112,5 +125,7 @@ namespace BGL.Web.Actions
 
             return user;
         }
+
+        #endregion
     }
 }

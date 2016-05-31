@@ -6,6 +6,9 @@ using System;
 
 namespace BGL.Services
 {
+    /// <summary>
+    /// Generic base service
+    /// </summary>
     public class BaseService
     {
         private ILogger logger { get; set; }
@@ -16,6 +19,9 @@ namespace BGL.Services
             this.logger = logger;
         }
 
+        /// <summary>
+        /// Generic service endpoint invoker
+        /// </summary>
         public T TryExecute<T>(object request, Action<T> action) where T: GenericServiceResult, new()
         {
             var result = new T();
@@ -29,7 +35,7 @@ namespace BGL.Services
             catch(Exception ex)
             {
                 logger.Error(ex);
-                result.Notifications.AddMessage(new Notification("A general service error occured."));
+                result.Notifications.AddError("A general service error occurred.");
             }
 
             return result;

@@ -14,6 +14,9 @@ using Airborne.Notifications;
 
 namespace BGL.Services.GitServices
 {
+    /// <summary>
+    /// Concrete Git service implementation
+    /// </summary>
     public class GitService : BaseService, IGitService
     {
         private IRestClient RestClient;
@@ -25,6 +28,9 @@ namespace BGL.Services.GitServices
             this.RestClient = restClient;
         }
 
+        /// <summary>
+        /// Gets a users Git repositories 
+        /// </summary>
         public GetGitRepositoriesResult GetGitUserRepositories(GetGitRepositoriesRequest request)
         {
             return TryExecute<GetGitRepositoriesResult>(request, (result) =>
@@ -60,8 +66,11 @@ namespace BGL.Services.GitServices
                 }
             });
         }
-            
-        
+                
+        /// <summary>
+        /// Gets a Git User
+        /// </summary>
+                    
         public GetGitUserResult GetGitUser(GetGitUserRequest request)
         {
             return TryExecute<GetGitUserResult>(request, (result) =>
